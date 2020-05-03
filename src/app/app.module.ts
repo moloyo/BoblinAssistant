@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DiceTableModule } from './dice-table/dice-table.module';
 import { UsersModule } from './users/users.module';
+import { ChatModule } from './chat/chat.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UsersModule } from './users/users.module';
     BrowserModule,
     AppRoutingModule,
     DiceTableModule,
-    UsersModule
+    UsersModule,
+    ChatModule
   ],
   providers: [],
   bootstrap: [AppComponent]

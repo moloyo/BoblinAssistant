@@ -1,0 +1,14 @@
+<div class="row">
+    <span class="col">Chat</span>
+</div>
+<div class="row chats">
+    <div class="col">
+        <span class="row" *ngFor="let msg of messages">
+            {{ msg.from.name }}: {{ msg.content }}
+        </span>
+    </div>
+</div>
+<div class="row">
+    <input class="col" type="text" name="" #messageToSend>
+    <input type="button" value="Send" (click)="sendMessage(messageToSend.value)">
+</div>
