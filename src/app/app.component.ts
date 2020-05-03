@@ -10,7 +10,11 @@ import { SocketService } from './shared/socket.service';
 export class AppComponent implements OnInit {
   user = new User(`Demo user ${this.getRandomInt(100, 999)}`);
 
+  diceTableHeight = 80;
+  chatRoomHeight = 19;
+  isResizing = false;
 
+  sidebarHover: boolean;
 
   constructor(private socketService: SocketService) { }
 
@@ -27,5 +31,26 @@ export class AppComponent implements OnInit {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  handleSidebarHover(isHovering: boolean) {
+    this.sidebarHover = isHovering;
+  }
+
+  handleResizeStart(className: string) {
+    if (className === 'chat-resize') {
+      this.isResizing = true;
+    }
+  }
+
+  handleResize(event: MouseEvent) {
+    if (this.isResizing) {
+      this.diceTableHeight = Math.floor(event.y / window.innerHeight * 100);
+      this.chatRoomHeight = 99 - this.diceTableHeight;
+    }
+  }
+
+  handleResizeStop() {
+    this.isResizing = false;
   }
 }
