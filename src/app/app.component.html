@@ -1,8 +1,11 @@
 <div id="main-container" class="container-fluid h-100">
   <!-- HEADER -->
   <div id="main-content" class="row">
-    <div id="side-panel" class="col-2">
-      <app-connected-users></app-connected-users>
+    <div id="side-panel" class="col-8">
+      <app-chat [user]="user"></app-chat>
+    </div>
+    <div id="side-panel" class="col-4">
+      <app-users></app-users>
     </div>
   </div>
   <!-- FOOTER -->
