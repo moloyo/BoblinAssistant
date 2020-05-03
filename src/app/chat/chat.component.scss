@@ -1,3 +1,72 @@
-.chats {
-    min-height: 200px;
+@import "../../settings.scss";
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border: 1px solid $gray;
+  border-radius: 8px;
+  &__box {
+    scrollbar-width: thin;
+    color: $white;
+    font-size: 16px;
+    &--container{
+      flex-grow: 1;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      word-wrap: break-word;
+      margin: 8px;
+    }
+  }
+  &__input{
+    height: 24px;
+    background: $dark-gray;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border: 1px solid $gray;
+    outline: none;
+    color: $white;
+    font-weight: bold;
+    font-size: 16px;
+    &--container{
+      border-top: 1px solid $gray;
+      padding: 8px;
+    }
+  }
+  &__send{
+    height: 24px;
+    background: $dark-gray;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: 1px solid $gray;
+    border-left: none;
+    color: $white;
+    font-size: 16px;
+    font-weight: bold;
+    outline: no;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $light-blue;
+  border-radius: 4px;
+  border: 1px solid $gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $gray;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $white;
 }

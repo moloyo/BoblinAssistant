@@ -1,9 +1,55 @@
-#main-content {
-    height: 100%;
+@import "../settings.scss";
+
+.dice-table {
+    height: 80%;
+    background: $black;
 }
 
-// Delete this
-div {
-    border: 1px solid black;
-    border-radius: 1em;
+.users-panel {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    background: $dark-blue;
+    border-left: 2px solid $gray;
+}
+
+.chat-tab {
+    position: relative;
+    top: -25px;
+    left: 0;
+    width: 15%;
+    min-width: 80px;
+    height: 24px;
+    background: $dark-gray;
+    border: 1px solid $gray;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-left: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: $white;
+    border-bottom: none;
+    user-select: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.chat-resize {
+    display: flex;
+    height: 1%;
+    background: $light-blue;
+    border-top: 1px solid $gray;
+    &:hover {
+        cursor: row-resize;
+    }
+}
+
+.chat-room {
+    background: $dark-gray;
+    height: 19%;
+    padding: 8px;
 }
