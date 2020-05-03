@@ -1,4 +1,4 @@
-@import '../settings.scss';
+@import "../settings.scss";
 
 .dice-table {
     height: 80%;
@@ -6,6 +6,8 @@
 }
 
 .users-panel {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     right: 0;
     z-index: 2;
@@ -13,7 +15,7 @@
     border-left: 2px solid $gray;
 }
 
-.chat-tab{
+.chat-tab {
     position: relative;
     top: -25px;
     left: 0;
@@ -31,17 +33,17 @@
     color: $white;
     border-bottom: none;
     user-select: none;
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 }
 
-.chat-resize{
+.chat-resize {
     display: flex;
     height: 1%;
     background: $light-blue;
     border-top: 1px solid $gray;
-    &:hover{
+    &:hover {
         cursor: row-resize;
     }
 }

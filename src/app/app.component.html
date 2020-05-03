@@ -13,9 +13,9 @@
       </div>
     </div>
 
-    <div class="users-panel p-0 h-100 col-md-3" [ngClass]="{'col-1': !sidebarHover, 'col-5': sidebarHover}"
+    <div class="users-panel p-0 pl-2 h-100 col-md-3" [ngClass]="{'col-1': !sidebarHover, 'col-5': sidebarHover}"
       (mouseenter)="handleSidebarHover(true)" (mouseleave)="handleSidebarHover(false)">
-      <app-users class="d-md-block" [ngClass]="{'d-none': !sidebarHover, 'd-block': sidebarHover}"></app-users>
+      <app-users class="d-md-flex flex-grow-1" [ngClass]="{'d-none': !sidebarHover, 'd-flex': sidebarHover}"></app-users>
     </div>
 
   </div>
