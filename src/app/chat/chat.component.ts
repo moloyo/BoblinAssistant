@@ -10,7 +10,8 @@ import { Message } from '../users/models/message.model';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-  @Input() user;
+  @Input() user: User;
+  input: string;
   messages: Message[] = [];
 
   constructor(private socketService: SocketService) { }
@@ -21,10 +22,17 @@ export class ChatComponent implements OnInit {
     });
   }
 
-  public sendMessage(message: string): void {
+  public sendMessage(): void {
     this.socketService.send({
       from: this.user,
-      content: message
+      content: this.input
     });
+    this.input = '';
+  }
+
+  handleEnter(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.sendMessage();
+    }
   }
 }
