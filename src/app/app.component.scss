@@ -1,22 +1,16 @@
-.app{
-    display: flex;
-    flex-wrap: wrap;
-    &__dice-table {
-        width: 65vw;
-        height: 80vh;
-        background: #1E2529;
-    }
-    
-    &__users {
-        width: 35vw;
-        height: 100vh;
-        background: #003367
-    }
-    
-    &__chat {
-        width: 65vw;
-        height: 20vh;
-        background: #2F3133;
-    }
+.dice-table {
+    height: 75%;
+    background: #1e2529;
 }
 
+.users-panel {
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    background: #003367;
+}
+
+.chat-room {
+    background: #2f3133;
+    height: 25%;
+}
