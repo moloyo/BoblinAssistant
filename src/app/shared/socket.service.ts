@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Message } from '../users/models/message.model';
+import { Message } from '../chat/chat.model';
 import { Observable } from 'rxjs';
-import { User } from '../users/models/user.model';
+import { User } from '../users/users.model';
 
 import * as socketIo from 'socket.io-client';
+import { Socket } from 'socket.io';
+import { Roll } from '../dice-table/dice-table.model';
 
 const SERVER_URL = 'http://localhost:8080';
 
@@ -12,7 +14,7 @@ const SERVER_URL = 'http://localhost:8080';
 })
 export class SocketService {
 
-  private socket;
+  private socket: Socket;
 
   constructor() { }
 
@@ -21,14 +23,12 @@ export class SocketService {
     this.socket.emit('user', user);
   }
 
-  public send(message: Message): void {
+  public sendMessage(message: Message): void {
     this.socket.emit('message', message);
   }
 
-  public onMessage(): Observable<Message> {
-    return new Observable<Message>(observer => {
-      this.socket.on('message', (data: Message) => observer.next(data));
-    });
+  public sendRoll(roll: Roll[]) {
+    this.socket.emit('roll', roll);
   }
 
   public onUsers(): Observable<User[]> {
@@ -37,9 +37,15 @@ export class SocketService {
     });
   }
 
-  public onEvent(event: Event): Observable<any> {
-    return new Observable<Event>(observer => {
-      this.socket.on(event, () => observer.next());
+  public onMessage(): Observable<Message> {
+    return new Observable<Message>(observer => {
+      this.socket.on('message', (data: Message) => observer.next(data));
     });
   }
+
+  public onRoll(): Observable<Roll[]> {
+    return new Observable<Roll[]>(observer => {
+      this.socket.on('roll', (data: Roll[]) => observer.next(data));
+    })
+  };
 }
