@@ -1,0 +1,32 @@
+<div class="container-fluid h-100 p-0"
+(mousemove)="handleResize($event)"
+(touchmove)="handleResize($event)"
+(mouseup)="handleResizeStop()"
+(touchend)="handleResizeStop()"
+>
+
+    <div class="row h-100 p-0 m-0">
+        <div class="col-11 col-md-9 h-100 p-0">
+            <div class="dice-table" [ngStyle]="{'height': diceTableHeight +'%'}">
+                <app-dice-table></app-dice-table>
+            </div>
+            <div class="chat-resize" 
+            (mousedown)="handleResizeStart($event.target.className)"
+            (touchstart)="handleResizeStart($event.target.className)"
+            >
+                <div class="chat-tab">Chat</div>
+                <div class="chat-tab">Log</div>
+            </div>
+            <div class="chat-room" [ngStyle]="{'height': chatRoomHeight +'%'}">
+                <app-chat></app-chat>
+            </div>
+        </div>
+
+        <div class="users-panel p-0 pl-2 h-100 col-md-3" [ngClass]="{'col-1': !sidebarHover, 'col-5': sidebarHover}"
+            (mouseenter)="handleSidebarHover(true)" (mouseleave)="handleSidebarHover(false)">
+            <app-users class="d-md-flex flex-grow-1" [ngClass]="{'d-none': !sidebarHover, 'd-flex': sidebarHover}">
+            </app-users>
+        </div>
+
+    </div>
+</div>

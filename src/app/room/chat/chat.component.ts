@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SocketService } from '../shared/socket.service';
+import { SocketService } from '../../shared/services/socket/socket.service';
 import { User } from '../users/users.model';
 import { Message } from './chat.model';
 
@@ -10,7 +10,7 @@ import { Message } from './chat.model';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-  @Input() user: User;
+  user: User;
   input: string;
   messages: Message[] = [];
 

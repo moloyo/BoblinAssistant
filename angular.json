@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dados": {
+    "boblinassistant": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dados",
+            "outputPath": "dist/boblinassistant",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,11 +28,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "scripts": [
               "src/assets/unity/Build/UnityLoader.js"
-            ]
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles/"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -68,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dados:build"
+            "browserTarget": "boblinassistant:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "dados:build:production"
+              "browserTarget": "boblinassistant:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dados:build"
+            "browserTarget": "boblinassistant:build"
           }
         },
         "test": {
@@ -116,15 +121,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "dados:serve"
+            "devServerTarget": "boblinassistant:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "dados:serve:production"
+              "devServerTarget": "boblinassistant:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "dados"
+  "defaultProject": "boblinassistant"
 }

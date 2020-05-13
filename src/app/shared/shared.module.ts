@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SocketService } from './socket.service';
+import { SocketService } from './services/socket/socket.service';
 
 
 

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Message } from '../chat/chat.model';
+import { Message } from '../../../room/chat/chat.model';
 import { Observable } from 'rxjs';
-import { User } from '../users/users.model';
+import { User } from '../../../room/users/users.model';
 
 import * as socketIo from 'socket.io-client';
 import { Socket } from 'socket.io';
-import { Roll } from '../dice-table/dice-table.model';
+import { Roll } from '../../../room/dice-table/dice-table.model';
 
 const SERVER_URL = 'http://localhost:8080';
 
