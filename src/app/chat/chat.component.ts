@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SocketService } from '../shared/socket.service';
-import { User } from '../users/models/user.model';
-import { Message } from '../users/models/message.model';
+import { User } from '../users/users.model';
+import { Message } from './chat.model';
 
 
 @Component({
@@ -23,7 +23,7 @@ export class ChatComponent implements OnInit {
   }
 
   public sendMessage(): void {
-    this.socketService.send({
+    this.socketService.sendMessage({
       from: this.user,
       content: this.input
     });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketService } from '../shared/socket.service';
-import { User } from './models/user.model';
+import { User } from './users.model';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +15,6 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.socketService.onUsers().subscribe((data) => {
-      console.log(data);
       this.users = data;
     });
   }
