@@ -16,7 +16,7 @@ export class GameService {
   }
 
   resizeGame() {
-    if (!this.isFullscreen) {
+    if (!this.isFullscreen && this.gameInstance.Module.setCanvasSize) {
       const { offsetWidth: width, offsetHeight: height } = this.gameContainer;
       this.gameInstance.Module.setCanvasSize(width, height);
     }

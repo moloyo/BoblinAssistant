@@ -1,3 +1,51 @@
-.header{
-    height: 15vh;
+@import "settings";
+
+.header {
+    display: flex;
+    flex-direction: row;
+    height: 14vh;
+    background: $dark-gray;
+    color: $white;
+    font-size: 24px;
+    &__title {
+        white-space: nowrap;
+        margin: 8px;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+    margin-left: 16px;
+    &__link {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 8px;
+        padding: 4px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        text-decoration: none;
+        color: $white;
+        text-decoration-color: $dark-gray;
+        &--active {
+            color: $dark-gray;
+            background: $light-blue;
+        }
+        &:hover{
+            color: $dark-gray;
+        }
+    }
+}
+
+.division {
+    height: 1vh;
+    background: $light-blue;
+    border-bottom: 1px solid $gray;
+}
+
+@media (min-height: 500px) {
+    .header {
+        flex-direction: column;
+    }
 }

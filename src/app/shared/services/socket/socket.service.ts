@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Message } from '../../../room/chat/chat.model';
 import { Observable } from 'rxjs';
-import { User } from '../../../room/users/users.model';
 
 import * as socketIo from 'socket.io-client';
 import { Socket } from 'socket.io';
 import { Roll } from '../../../room/dice-table/dice-table.model';
+import { User } from 'src/app/room/users/users.model';
 
 const SERVER_URL = 'http://localhost:8080';
 
@@ -13,13 +13,16 @@ const SERVER_URL = 'http://localhost:8080';
   providedIn: 'root'
 })
 export class SocketService {
-
   private socket: Socket;
+  user: User;
 
   constructor() { }
 
-  public initSocket(user: User): void {
+  public initSocket(): void {
     this.socket = socketIo(SERVER_URL);
+  }
+
+  public sendUser(user: User): void {
     this.socket.emit('user', user);
   }
 
@@ -46,6 +49,6 @@ export class SocketService {
   public onRoll(): Observable<Roll[]> {
     return new Observable<Roll[]>(observer => {
       this.socket.on('roll', (data: Roll[]) => observer.next(data));
-    })
+    });
   };
 }
