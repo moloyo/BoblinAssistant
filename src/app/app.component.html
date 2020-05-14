@@ -1,22 +1,11 @@
-<div class="container-fluid h-100 p-0" (mousemove)="handleResize($event)" (mouseup)="handleResizeStop()">
-  <div class="row h-100 p-0 m-0">
-    <div class="col-11 col-md-9 h-100 p-0">
-      <div class="dice-table" [ngStyle]="{'height': diceTableHeight +'%'}">
-        <app-dice-table></app-dice-table>
-      </div>
-      <div class="chat-resize" (mousedown)="handleResizeStart($event.target.className)">
-        <div class="chat-tab">Chat</div>
-        <div class="chat-tab">Log</div>
-      </div>
-      <div class="chat-room" [ngStyle]="{'height': chatRoomHeight +'%'}">
-        <app-chat [user]="user"></app-chat>
-      </div>
-    </div>
-
-    <div class="users-panel p-0 pl-2 h-100 col-md-3" [ngClass]="{'col-1': !sidebarHover, 'col-5': sidebarHover}"
-      (mouseenter)="handleSidebarHover(true)" (mouseleave)="handleSidebarHover(false)">
-      <app-users class="d-md-flex flex-grow-1" [ngClass]="{'d-none': !sidebarHover, 'd-flex': sidebarHover}"></app-users>
-    </div>
-
+<div class="header">
+  <div class="header__title">Boblin Assistant</div>
+  <div class="nav">
+    <a class="nav__link" routerLink="home" routerLinkActive="nav__link--active">Home</a>
+    <a class="nav__link" routerLink="room" routerLinkActive="nav__link--active">Room</a>
+    <a class="nav__link" routerLinkActive="nav__link--active">Character</a>
+    <a class="nav__link" routerLinkActive="nav__link--active">Inventory</a>
   </div>
 </div>
+<div class="division"></div>
+<router-outlet></router-outlet>

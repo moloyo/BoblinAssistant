@@ -1,55 +1,51 @@
-@import "../settings.scss";
+@import "settings";
 
-.dice-table {
-    height: 80%;
-    background: $black;
-}
-
-.users-panel {
+.header {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 0;
-    z-index: 2;
-    background: $dark-blue;
-    border-left: 2px solid $gray;
-}
-
-.chat-tab {
-    position: relative;
-    top: -25px;
-    left: 0;
-    width: 15%;
-    min-width: 80px;
-    height: 24px;
+    flex-direction: row;
+    height: 14vh;
     background: $dark-gray;
-    border: 1px solid $gray;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-left: 10px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
     color: $white;
-    border-bottom: none;
-    user-select: none;
-    &:hover {
-        cursor: pointer;
+    font-size: 24px;
+    &__title {
+        white-space: nowrap;
+        margin: 8px;
     }
 }
 
-.chat-resize {
+.nav {
     display: flex;
-    height: 1%;
-    background: $light-blue;
-    border-top: 1px solid $gray;
-    &:hover {
-        cursor: row-resize;
+    align-items: flex-end;
+    height: 100%;
+    margin-left: 16px;
+    &__link {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 8px;
+        padding: 4px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        text-decoration: none;
+        color: $white;
+        text-decoration-color: $dark-gray;
+        &--active {
+            color: $dark-gray;
+            background: $light-blue;
+        }
+        &:hover{
+            color: $dark-gray;
+        }
     }
 }
 
-.chat-room {
-    background: $dark-gray;
-    height: 19%;
-    padding: 8px;
+.division {
+    height: 1vh;
+    background: $light-blue;
+    border-bottom: 1px solid $gray;
+}
+
+@media (min-height: 500px) {
+    .header {
+        flex-direction: column;
+    }
 }
