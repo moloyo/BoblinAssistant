@@ -14,11 +14,9 @@ export class DiceTableComponent implements AfterViewInit, OnDestroy {
   constructor(private socketService: SocketService, private gameService: GameService) { }
 
   ngAfterViewInit(): void {
-    this.gameService.gameInstance = UnityLoader.instantiate('gameContainer', 'assets/unity/Build/Build.json');
+    this.gameService.gameInstance = UnityLoader.instantiate('gameContainer', 'assets/unity/Build.json');
     this.gameService.gameContainer = this.gameContainerRef.nativeElement;
-    console.log(this.gameService.gameInstance);
 
-    console.log(UnityLoader)
     window.addEventListener('result', (e: CustomEvent) => {
       console.log(e.detail);
     });
@@ -28,15 +26,19 @@ export class DiceTableComponent implements AfterViewInit, OnDestroy {
       this.socketService.sendRoll(e.detail);
     });
 
-    this.socketService.onRoll().subscribe(res => console.log(res));
+    this.socketService.onRoll().subscribe(
+      res => {
+        const json = { items: res };
+        this.gameService.gameInstance.SendMessage('d20/d20', 'Play', JSON.stringify(json));
+      }
+    );
   }
 
   ngOnDestroy() {
-    this.gameService.gameInstance.SendMessage('Main Camera', 'Quit');
+    this.gameService.gameInstance.Quit();
   }
   setFullScreen(mode: number) {
     this.gameService.setFullscreen(mode);
   }
 }
-
 

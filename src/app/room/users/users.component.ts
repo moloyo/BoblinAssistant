@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SocketService } from '../../shared/services/socket/socket.service';
 import { User } from './users.model';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-users',
@@ -11,11 +11,9 @@ export class UsersComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(private socketService: SocketService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.socketService.onUsers().subscribe((data) => {
-      this.users = data;
-    });
+    this.users = this.authService.users;
   }
 }

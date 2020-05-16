@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row profile mx-1 p-2 mx-sm-3 p-sm-3">
+        <div class="col-12 p-0 d-flex justify-content-end">
+            <img (click)="isEditing = !isEditing" class="edit" src="/assets/icons/edit-24px.svg">
+        </div>
+        <div class="col-12 p-0">
+            <label *ngIf="isEditing" class="username">
+                Username:<input type="text" class="formfield mx-2 px-2" [(ngModel)]="user.name">
+            </label>
+            <label *ngIf="!isEditing" class="username">
+                Username:<span class="mx-2 px-2">{{ user.name }}</span>
+            </label>
+        </div>
+        <div class="col-12 p-0 d-flex justify-content-center">
+            <div (click)="setUsername()" class="btn mt-3 submit">Submit</div>
+        </div>
+    </div>
+</div>

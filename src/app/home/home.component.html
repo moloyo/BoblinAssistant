@@ -1,2 +1,10 @@
-<p>home works!</p>
-<app-login></app-login>
+<div class="home">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="home__container col-10 offset-1 col-lg-8 offset-lg-2 p-2 py-5 p-lg-5">
+                <app-login *ngIf="!user"></app-login>
+                <app-profile [user]="user" *ngIf="user"></app-profile>
+            </div>
+        </div>
+    </div>
+</div>

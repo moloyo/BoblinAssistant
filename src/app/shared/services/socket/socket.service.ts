@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Message } from '../../../room/chat/chat.model';
 import { Observable } from 'rxjs';
-
 import * as socketIo from 'socket.io-client';
 import { Socket } from 'socket.io';
 import { Roll } from '../../../room/dice-table/dice-table.model';
@@ -14,7 +13,6 @@ const SERVER_URL = 'http://localhost:8080';
 })
 export class SocketService {
   private socket: Socket;
-  user: User;
 
   constructor() { }
 
