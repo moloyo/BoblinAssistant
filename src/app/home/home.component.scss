@@ -1,0 +1,10 @@
+@import 'settings';
+
+.home{
+    height: 100%;
+    background: $dark-blue;
+    &__container {
+        height: 100%;
+        background: $dark-gray;
+    }
+}

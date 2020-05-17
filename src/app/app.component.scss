@@ -17,11 +17,9 @@
     display: flex;
     align-items: flex-end;
     height: 100%;
-    margin-left: 16px;
     &__link {
         font-size: 16px;
         font-weight: bold;
-        margin: 0 8px;
         padding: 4px;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
@@ -33,7 +31,7 @@
             background: $light-blue;
         }
         &:hover{
-            color: $dark-gray;
+            color: $blue
         }
     }
 }

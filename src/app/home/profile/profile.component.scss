@@ -1,0 +1,30 @@
+@import 'settings';
+
+.profile{
+    border: 1px solid $gray;
+    border-radius: 8px;
+}
+
+.username{
+    color: $white;
+    font-weight: bold;
+}
+
+.formfield{
+    border-radius: 4px;
+    border: 1px solid $white;
+    background: $gray;
+    color: $white;
+    font-weight: bold;
+    height: 24px;
+}
+
+.edit{
+    justify-self: flex-end;
+}
+
+.submit{
+    background: $light-blue;
+    color: $white;
+    font-weight: bold;
+}
